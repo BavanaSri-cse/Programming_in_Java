@@ -1,0 +1,42 @@
+package electrical;
+import java.util.Scanner;
+public class ebbill 
+{
+   public static void main(String[] args) 
+    {
+        Scanner in=new Scanner(System.in);
+        String type;
+        int units;
+        double amount=0;
+        
+        System.out.print("Connection Type:");
+        type=in.nextLine();
+        System.out.print("Units Consumed:");
+        units=in.nextInt();
+        if(type.equalsIgnoreCase("Domestic"))
+        {
+            if(units<=100)
+                amount=0;
+            else if(units<=200)
+                amount=(units-100)*2;
+            else if(units<=500)
+                amount=(100*2)+(units-200)*4;
+            else
+                amount=(100*2)+(300*4)+(units-500)*6;
+        }
+        else if(type.equalsIgnoreCase("Commercial"))
+        {
+            if(units<=100)
+                amount=units*2;
+            else if(units<=200)
+                amount=(100*2)+(units-100)*4;
+            else if(units<=500)
+                amount=(100*2)+(100*4)+(units-200)*6;
+            else
+                amount=(100*2)+(100*4)+(800*6)+(units-500)*7;
+            
+        }
+        System.out.println("Amount to be paid: Rs." +(int)amount);
+    }
+    
+}
